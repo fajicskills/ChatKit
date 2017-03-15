@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="@color/conversation_compose_edit_text_background"
+        android:padding="5dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <FrameLayout android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <LinearLayout android:id="@+id/compose_bubble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sent_bubble"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+
+                <EditText
+                    style="@style/ComposeEditText"
+                    android:id="@+id/embedded_text_editor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="37dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:nextFocusForward="@+id/send_button"
+                    android:nextFocusRight="@+id/send_button"
+                    android:hint="Your message" >
+                    <requestFocus />
+                </EditText>
+
+            </LinearLayout>
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/button_toggle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_tintable"
+            android:layout_gravity="bottom">
+
+            <ImageButton
+                android:id="@+id/send_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/conversation_activity__send"
+                android:nextFocusLeft="@+id/embedded_text_editor"
+                app:srcCompat="@drawable/ic_send_black_24dp"
+                android:background="@drawable/circle_touch_highlight_background" />
+
+        </FrameLayout>
+    </LinearLayout>
+</merge>

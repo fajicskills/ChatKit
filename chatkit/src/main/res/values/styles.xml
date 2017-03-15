@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ComposeEditText" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:padding">2dp</item>
+        <item name="android:background">@color/conversation_compose_edit_text_background</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:maxLength">2000</item>
+        <item name="android:textColor">@color/conversation_item_sent_body_text</item>
+        <item name="android:capitalize">sentences</item>
+        <item name="android:autoText">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:imeOptions">flagNoEnterAction</item>
+        <item name="android:inputType">textAutoCorrect|textCapSentences|textMultiLine</item>
+        <item name="android:contentDescription">@string/conversation_activity__compose_description</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

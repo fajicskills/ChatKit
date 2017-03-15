@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">chatkit</string>
+
+
+    <string name="conversation_activity__compose_description">Message composition</string>
+    <string name="conversation_activity__send">Send</string>
+</resources>
