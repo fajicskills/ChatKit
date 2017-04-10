@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'ChatKit'
+
+    publishedGroupId = 'com.fajicskills.chatkit'
+    libraryName = 'ChatKit'
+    artifact = 'chatkit'
+
+    libraryDescription = 'ChatKit is an android library to add chat features quickly in your Android app'
+
+    siteUrl = 'https://github.com/fajicskills/ChatKit'
+    gitUrl = 'https://github.com/fajicskills/ChatKit.git'
+
+    libraryVersion = '1.0.0-beta-1'
+
+    developerId = 'angebagui'
+    developerName = 'Ange Bagui'
+    developerEmail = 'angebagui@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -51,3 +75,6 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+
+apply from: './installv1.gradle'
+apply from: './bintrayv1.gradle'

@@ -75,14 +75,15 @@ public class ChatActivity extends ConversationActivity {
         Log.w(TAG, "Test  DeleteMessageEvent");
     }
 
+
     @Override
-    public void updateUI(DataSetChange dataSetChange) {
+    public void loadMessageRecordsFromDBUI(DataSetChange dataSetChange) {
         dataSetChange.onSuccess(Database.getConversations().get(0).getMessages());
         dataSetChange.onFailure(null);
     }
 
     @Override
-    public void refreshUI(DataSetChange dataSetChange) {
+    public void loadMessageRecordsFromInternetUI(DataSetChange dataSetChange) {
 
     }
 

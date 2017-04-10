@@ -2,15 +2,19 @@ package com.fajicskills.chatkit;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.AnimRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DrawableUtils;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +46,9 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
 
     private  @NonNull  List<MessageRecord> messages;
 
+    // Allows to remember the last item shown on screen
+    private int lastPosition = -1;
+
     public ConversationAdapter(@NonNull Context context, @Nullable ItemClickListener clickListener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
@@ -60,8 +67,17 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final MessageRecord messageRecord = messages.get(position);
-       // Picasso.with(holder.itemView.getContext()).load(Uri.parse(messageRecord.getSenderPhoto())).error(R.drawable.ic_person_black_24dp).into(holder.contactPhoto);
+
+
+
+        if (!TextUtils.isEmpty(messageRecord.getSenderPhoto())){
+
+            Picasso.with(holder.itemView.getContext()).load(Uri.parse(messageRecord.getSenderPhoto())).error(R.drawable.ic_person_black_24dp).into(holder.contactPhoto);
+
+        }
+
         holder.conversationItemBody.setText(messageRecord.getBody().isPlaintext()?messageRecord.getBody().getBody():messageRecord.getDisplayBody());
+
         if (messageRecord.isOutgoing()){
             holder.conversationItemDate.setText(MaterialDesignDateFormats.display(messageRecord.getDateSent(), Locale.getDefault()));
 
@@ -88,6 +104,20 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
             }
         });
 
+    }
+
+    /**
+     * Here is the key method to apply the animation
+     */
+    private void setAnimation(View viewToAnimate, int position, @AnimRes int anim)
+    {
+        // If the bound view wasn't previously displayed on screen, it's animated
+        if (position > lastPosition)
+        {
+            Animation animation = AnimationUtils.loadAnimation(context,anim);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
     }
 
     @Override
