@@ -8,7 +8,7 @@ ChatKit
 ChatKit is an android library to add chat feature quickly in your Android app
 
 #Screenshot
-![Screenshot](https://github.com/fajicskills/ChatKit/blob/master/screenshot/Screenshot_2016-08-14-19-59-48.png)
+![Screenshot](https://github.com/fajicskills/ChatKit/blob/master/screenshot/Mobile-chat.png)
 
 
 Usage
