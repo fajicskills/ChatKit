@@ -1,7 +1,7 @@
 ChatKit
 =======
 
-[ ![Download](https://api.bintray.com/packages/angebagui/maven/ChatKit/images/download.svg) ]
+![Download](https://api.bintray.com/packages/angebagui/maven/ChatKit/images/download.svg) 
 
 
 
