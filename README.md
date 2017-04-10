@@ -49,7 +49,7 @@ public class ChatActivity extends ConversationActivity {
     @Override
     public Message sendMessage(String message) {
 
-        return new Message(me,message,System.currentTimeMillis(),false);
+        return new Message(me,chatId,message,System.currentTimeMillis(),false);
     }
 
     /**

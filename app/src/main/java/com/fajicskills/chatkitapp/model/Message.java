@@ -28,8 +28,9 @@ public class Message implements MessageRecord<Long,Long,Long> , Serializable{
 
     private boolean isOutgoing;
 
-    public Message( User sender, String message, long dateSent, boolean isOutgoing) {
+    public Message( User sender, Long chatId, String message, long dateSent, boolean isOutgoing) {
         this.sender = sender;
+        this.chatId = chatId;
         this.message = message;
         this.dateSent = dateSent;
         this.isOutgoing = isOutgoing;
