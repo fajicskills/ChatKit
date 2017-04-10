@@ -2,7 +2,7 @@ ChatKit
 =======
 
 [ ![Download](https://api.bintray.com/packages/angebagui/maven/ChatKit/images/download.svg) ]
-(https://bintray.com/angebagui/maven/ChatKit/_latestVersion)
+
 
 
 ChatKit is an android library to add chat feature quickly in your Android app
