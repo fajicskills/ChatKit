@@ -37,15 +37,25 @@ public class ChatActivity extends ConversationActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        //chatId = Add chatId
+         // me =  Add connected User
     }
 
+    /**
+     * This method allow you to create Message Record by message wrote by connected User
+     * @param message
+     * @return
+     */
     @Override
     public Message sendMessage(String message) {
 
         return new Message(me,message,System.currentTimeMillis(),false);
     }
 
+    /**
+     * The method allow you the return the Observable to send message to the Backend Server
+     * @return
+     */
 
     @Override
     public Observable<Message> getSendingObservable() {
@@ -57,18 +67,31 @@ public class ChatActivity extends ConversationActivity {
         });
     }
 
+    /**
+     * When message is added to the Message Job
+     * @param event
+     */
     @Override
     public void onEventMainThread(MessageJobAddedEvent event) {
          super.onEventMainThread(event);
         Log.w(TAG, "Test  MessageJobAddedEvent");
     }
 
+    /**
+     * When message is sent to the server with success
+     * @param event
+     */
     @Override
     public void onEventMainThread(UpdatedMessageEvent event) {
         super.onEventMainThread(event);
         Log.w(TAG, "Test  UpdatedMessageEvent");
     }
 
+
+    /**
+     * When we got error on the Job running and message have been deleted
+     * @param event
+     */
     @Override
     public void onEventMainThread(DeleteMessageEvent event) {
         super.onEventMainThread(event);
@@ -76,17 +99,30 @@ public class ChatActivity extends ConversationActivity {
     }
 
 
+    /**
+     * Load messages from your database
+     * @param dataSetChange
+     */
     @Override
     public void loadMessageRecordsFromDBUI(DataSetChange dataSetChange) {
+        // TODO implement to Load messages from your database
         dataSetChange.onSuccess(Database.getConversations().get(0).getMessages());
         dataSetChange.onFailure(null);
     }
 
+    /**
+     * Load messages from your backend server
+     * @param dataSetChange
+     */
     @Override
     public void loadMessageRecordsFromInternetUI(DataSetChange dataSetChange) {
-
+        // TODO implement to Load messages from your backend server
     }
 
+    /**
+     *
+     * @return an Item Click Listener
+     */
     @Override
     public ConversationAdapter.ItemClickListener getItemClickListener() {
         return new ConversationAdapter.ItemClickListener() {
@@ -102,6 +138,11 @@ public class ChatActivity extends ConversationActivity {
         };
     }
 
+    /**
+     * This method allow to get access of the RecyclerView and Adapter that fill your messages
+     * @param recyclerView
+     * @param conversationAdapter
+     */
     @Override
     public void onAdapterSet(RecyclerView recyclerView, ConversationAdapter conversationAdapter) {
         this.recyclerView = recyclerView;
