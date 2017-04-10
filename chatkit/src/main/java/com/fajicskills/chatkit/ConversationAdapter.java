@@ -123,9 +123,46 @@ public class ConversationAdapter extends RecyclerView.Adapter<ConversationAdapte
         return messages;
     }
 
+
+    public void addMessage(@NonNull MessageRecord messageRecord){
+        this.messages.add(messageRecord);
+        // TODO item inserted position
+        int itemInsertedPosition = this.getMessages().size()-1;
+        notifyItemInserted(itemInsertedPosition);
+    }
     public void setMessages(@NonNull List<MessageRecord> messages) {
         this.messages = messages;
         notifyDataSetChanged();
+    }
+
+    public void refreshMessage(MessageRecord messageRecord) {
+         int index =  -1;
+            for (int i = 0; i<messages.size(); i++){
+                if (messages.get(i).getClientId().equals(messageRecord.getClientId())){
+                    index = i;
+                }
+            }
+
+            if (index <0)
+                return;
+        this.messages.add(index,messageRecord);
+        notifyItemChanged(index);
+    }
+
+    public void removeMessage(MessageRecord messageRecord){
+
+        int index =  -1;
+        for (int i = 0; i<messages.size(); i++){
+            if (messages.get(i).getClientId().equals(messageRecord.getClientId())){
+                index = i;
+            }
+        }
+
+        if (index <0)
+            return;
+
+        messages.remove(index);
+        notifyItemRemoved(index);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

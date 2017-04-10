@@ -10,7 +10,10 @@ import java.io.Serializable;
 
 interface OnConversationFragmentListener extends Serializable {
 
-    void updateUI(DataSetChange dataSetChange);
+
+    void loadMessageRecordsFromDBUI(DataSetChange dataSetChange);
+
+    void loadMessageRecordsFromInternetUI(DataSetChange dataSetChange);
 
     ConversationAdapter.ItemClickListener getItemClickListener();
 

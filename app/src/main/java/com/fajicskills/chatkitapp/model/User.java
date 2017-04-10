@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 
+    private Long id;
     private String name;
 
     private String avatar;
@@ -19,6 +20,10 @@ public class User implements Serializable{
     public User(String name, String avatar) {
         this.name = name;
         this.avatar = avatar;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {

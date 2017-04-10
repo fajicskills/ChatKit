@@ -10,10 +10,13 @@ import java.io.Serializable;
  * Created by angebagui on 15/03/2017.
  */
 
-public class Message implements MessageRecord , Serializable{
+public class Message implements MessageRecord<Long,Long,Long> , Serializable{
 
+    private Long id;
 
-    private long id;
+    private String clientId;
+
+    private Long chatId;
 
     private User sender;
 
@@ -25,42 +28,33 @@ public class Message implements MessageRecord , Serializable{
 
     private boolean isOutgoing;
 
-    public Message(long id, User sender, String message, long dateSent, long dateReceived, boolean isOutgoing) {
-        this.id = id;
+    public Message( User sender, String message, long dateSent, boolean isOutgoing) {
         this.sender = sender;
         this.message = message;
         this.dateSent = dateSent;
-        this.dateReceived = dateReceived;
         this.isOutgoing = isOutgoing;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public void setSender(User sender) {
-        this.sender = sender;
-    }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setDateSent(long dateSent) {
-        this.dateSent = dateSent;
-    }
-
-    public void setDateReceived(long dateReceived) {
-        this.dateReceived = dateReceived;
-    }
-
-    public void setOutgoing(boolean outgoing) {
-        isOutgoing = outgoing;
+    @Override
+    public Long getId() {
+        return id;
     }
 
     @Override
-    public long getId() {
-        return id;
+    public Long getConversationId() {
+        return chatId;
+    }
+
+    @Override
+    public String getClientId() {
+        return clientId;
+    }
+
+    @Override
+    public Long getSenderIdentifier() {
+        return  this.sender.getId();
     }
 
     @Override
@@ -94,9 +88,10 @@ public class Message implements MessageRecord , Serializable{
     }
 
     @Override
-    public boolean isMms() {
+    public boolean isMedia() {
         return false;
     }
+
 
     @Override
     public boolean isFailed() {
@@ -111,5 +106,47 @@ public class Message implements MessageRecord , Serializable{
     @Override
     public boolean isOutgoing() {
         return isOutgoing;
+    }
+
+    @Override
+    public boolean isDelivered() {
+        return false;
+    }
+
+    @Override
+    public boolean isReceived() {
+        return false;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public void setChatId(Long chatId) {
+        this.chatId = chatId;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setDateSent(long dateSent) {
+        this.dateSent = dateSent;
+    }
+
+    public void setDateReceived(long dateReceived) {
+        this.dateReceived = dateReceived;
+    }
+
+    public void setOutgoing(boolean outgoing) {
+        isOutgoing = outgoing;
     }
 }

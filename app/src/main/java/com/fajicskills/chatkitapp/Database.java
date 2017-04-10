@@ -25,14 +25,14 @@ public class Database {
 
     private static List<Message> getGeneratedMessages() {
         List<Message> messages = new ArrayList<>();
-        messages.add(new Message(1, foo(),"Hello !",System.currentTimeMillis(),System.currentTimeMillis(),false));
-        messages.add(new Message(1, poo(),"Hi !",System.currentTimeMillis(),System.currentTimeMillis(),true));
-        messages.add(new Message(1, foo(),"How are you? ",System.currentTimeMillis(),System.currentTimeMillis(),false));
-        messages.add(new Message(1, poo(),"Am Ok and You ?",System.currentTimeMillis(),System.currentTimeMillis(),true));
-        messages.add(new Message(1, foo(),"Am there. ",System.currentTimeMillis(),System.currentTimeMillis(),false));
-        messages.add(new Message(1, poo(),"Where are you?",System.currentTimeMillis(),System.currentTimeMillis(),true));
-        messages.add(new Message(1, foo(),"Am in Abidjan. And you?",System.currentTimeMillis(),System.currentTimeMillis(),false));
-        messages.add(new Message(1, poo(),"Am in Yakro",System.currentTimeMillis(),System.currentTimeMillis(),true));
+        messages.add(new Message(foo(),"Hello !",System.currentTimeMillis(),false));
+        messages.add(new Message( poo(),"Hi !",System.currentTimeMillis(),true));
+        messages.add(new Message( foo(),"How are you? ",System.currentTimeMillis(),false));
+        messages.add(new Message( poo(),"Am Ok and You ?",System.currentTimeMillis(),true));
+        messages.add(new Message( foo(),"Am there. ",System.currentTimeMillis(),false));
+        messages.add(new Message( poo(),"Where are you?",System.currentTimeMillis(),true));
+        messages.add(new Message( foo(),"Am in Abidjan. And you?",System.currentTimeMillis(),false));
+        messages.add(new Message( poo(),"Am in Yakro",System.currentTimeMillis(),true));
 
         return messages;
     }

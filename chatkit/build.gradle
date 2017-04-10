@@ -30,13 +30,24 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     //Joda Time
     compile 'joda-time:joda-time:2.9.7'
+
+    //Event Bus
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //Android Priority JobQueue
+    compile 'com.birbit:android-priority-jobqueue:2.0.1'
+
+    //RxJava
+    // RxJava itself
+    compile 'io.reactivex:rxjava:1.2.6'
+    compile 'io.reactivex:rxandroid:1.2.1'
 
     testCompile 'junit:junit:4.12'
 }
