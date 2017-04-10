@@ -4,7 +4,11 @@ ChatKit
 ![Download](https://api.bintray.com/packages/angebagui/maven/ChatKit/images/download.svg) 
 ChatKit is an android library to add chat feature quickly in your Android app
 
+<<<<<<< HEAD
 ### Screenshot
+=======
+###Screenshot
+>>>>>>> 3968d9de87159754c42bc5e43bc6258efa103f71
  ![Screenshot](https://github.com/fajicskills/ChatKit/blob/master/screenshot/mobile_chat_image.png)
 
 
